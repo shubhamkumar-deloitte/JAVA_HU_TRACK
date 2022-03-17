@@ -19,10 +19,10 @@ public class StringAssignment {
                 if(idx==-1)
                 {
                     t[i][j]=true;
-                }else if(i==0){
-                    if(sc3[idx]==sc2[j-1])t[i][j]=t[i][j-1];
                 }else if(j==0){
-                    if(sc3[idx]==sc1[i-1])t[i][j]=t[i-1][j];
+                    if(sc3[idx]==sc1[i-1]) t[i][j]=t[i-1][j];
+                }else if(j==0){
+                    if(sc3[idx]==sc2[j-1]) t[i][j]=t[i][j-1];
                 }else{
                     t[i][j]=(sc1[i-1]==sc3[idx]? t[i-1][j]:false) || (sc2[j-1]==sc3[idx] ? t[i][j-1]:false);
                 }
