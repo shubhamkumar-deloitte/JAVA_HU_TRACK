@@ -8,17 +8,15 @@ public class ArraysAssignment {
         if(arr.length==0) return 0;
         int n=arr.length;
         int count=0;
-        int sum=0;
-        Map<Integer,Integer>map=new HashMap<>();
         for(int i=0;i<n;i++)
         {
-            sum+=arr[i];
-            if(sum<0)
+            int CurSum=0;
+            for(int x=i+1;x<n;x++)
             {
-                count++;
-            }
-            if(map.containsKey(sum)) {
-                count+=map.get(sum);
+                CurSum+=arr[x];
+                if(CurSum<0){
+                    count++;
+                }
             }
         }
         return count;
@@ -37,10 +35,10 @@ public class ArraysAssignment {
             arr[i]=sc.nextInt();
         }
 
-        for(int i=0;i<sizeOfArray;i++)
-        {
-            System.out.println(arr[i]);
-        }
+//        for(int i=0;i<sizeOfArray;i++)
+//        {
+//            System.out.println(arr[i]);
+//        }
             int ans=NumberOfSubarrays(arr);
         System.out.println(ans);
 

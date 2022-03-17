@@ -6,10 +6,11 @@ public class StringAssignment {
     public static boolean shuffled(String s1,String s2,String s3)
     {
 
+        //interleaved string length must be equal to the sum of both strings
         if(s1.length()+s2.length()!=s3.length()) return false;
-        char[] sc1=s1.toCharArray(),sc2=s2.toCharArray(),sc3=s3.toCharArray();
+        char[] sChar1=s1.toCharArray(),sChar2=s2.toCharArray(),sChar3=s3.toCharArray();
 
-        boolean [][]t=new boolean[sc1.length+1][sc2.length+1];
+        boolean [][]t=new boolean[sChar1.length+1][sChar2.length+1];
 
         for(int i=0;i<t.length;i++)
         {
@@ -20,11 +21,11 @@ public class StringAssignment {
                 {
                     t[i][j]=true;
                 }else if(j==0){
-                    if(sc3[idx]==sc1[i-1]) t[i][j]=t[i-1][j];
+                    if(sChar3[idx]==sChar1[i-1]) t[i][j]=t[i-1][j];
                 }else if(j==0){
-                    if(sc3[idx]==sc2[j-1]) t[i][j]=t[i][j-1];
+                    if(sChar3[idx]==sChar2[j-1]) t[i][j]=t[i][j-1];
                 }else{
-                    t[i][j]=(sc1[i-1]==sc3[idx]? t[i-1][j]:false) || (sc2[j-1]==sc3[idx] ? t[i][j-1]:false);
+                    t[i][j]=(sChar1[i-1]==sChar3[idx]? t[i-1][j]:false) || (sChar2[j-1]==sChar3[idx] ? t[i][j-1]:false);
                 }
             }
         }
