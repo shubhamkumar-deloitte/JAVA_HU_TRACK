@@ -181,14 +181,14 @@ public class EmployeeService  {
     }
     //delete
     public void deleteEmployee(){
-        System.out.println("Enter id");
-        id=sc.next();
+        System.out.println("Enter name");
+        name=sc.next();
         boolean found=false;
 
         Employee empdel=null;
 
         for(Employee emp:empset){
-            if(emp.getId()==id){
+            if(emp.getName().equals(name)){
                 empdel=emp;
                 found=true;
             }
