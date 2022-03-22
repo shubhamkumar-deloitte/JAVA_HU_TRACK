@@ -13,10 +13,30 @@ public class Register {
     String repassword;
     boolean loggedin=false;
 
+public boolean validateUsername(String username)
+{
+    for(Employee emp:registeredUser)
+    {
+        if(emp.getUsername().equals(username))
+        {
 
+                System.out.println("username already exists");
+                return false;
+
+        }
+    }
+    return true;
+}
     public void registerUser() throws Exception {
         System.out.println("Enter the username");
         username=sc.next();
+        boolean flag=validateUsername(username);
+
+            if(flag==false)
+            {
+                throw new Exception("username already exists");
+            }
+
         System.out.println("enter the password");
         password=sc.next();
         //Validate.validatePassword(password);
