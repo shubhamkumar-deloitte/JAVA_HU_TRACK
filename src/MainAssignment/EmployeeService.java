@@ -1,16 +1,32 @@
 package MainAssignment;
 
+import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.util.UUID;
 
-public class EmployeeService {
+public class EmployeeService  {
     HashSet<Employee> empset=new HashSet<>();
-    Employee emp1=new Employee(101,"Shubham",22,"HashedIn","SDET",5000,"Bangalore",1234567899);
+    Employee emp1=new Employee("101","Shubham",22,"HashedIn","SDET",5000,"Bangalore",1234567899);
 
     Scanner sc=new Scanner(System.in);
+    //adding to file
+
+
+
+
+
+
+
     boolean found=false;
 
-     int id;
+     String id;
      String name;
      int age;
      String CompanyName;
@@ -32,7 +48,7 @@ public class EmployeeService {
 
     public void viewEmployee(){
         System.out.println("enter id");
-        id=sc.nextInt();
+        id=sc.next();
         for(Employee emp:empset){
             if(emp.getId()==id){
                 System.out.println(emp);
@@ -42,15 +58,16 @@ public class EmployeeService {
         if(found==false){
             System.out.println("No such Employee with this ID");
         }
+
     }
     //update
     //user-id cant be updated
     public void updateEmployee(){
         System.out.println("Enter the id");
-        id=sc.nextInt();
+        id=sc.next();
         boolean found=false;
         for(Employee emp:empset){
-            if(emp.getId()==id){
+            if(emp.getId().equals(id)){
                 System.out.println("Enter name");
                 name=sc.next();
                 System.out.println("Enter age");
@@ -91,7 +108,7 @@ public class EmployeeService {
     //delete
     public void deleteEmployee(){
         System.out.println("Enter id");
-        id=sc.nextInt();
+        id=sc.next();
         boolean found=false;
 
         Employee empdel=null;
@@ -111,8 +128,8 @@ public class EmployeeService {
     }
     //add employee
     public void addEmp(){
-        System.out.println("Enter id");
-        id=sc.nextInt();
+        //System.out.println("Enter id");
+        id=UUID.randomUUID().toString();
         System.out.println("Enter name");
         name=sc.next();
         System.out.println("Enter age");
@@ -132,5 +149,6 @@ public class EmployeeService {
         empset.add(emp);
         System.out.println("Newly added employee details are");
         System.out.println(emp);
+
     }
 }

@@ -2,7 +2,7 @@ package MainAssignment;
 import java.io.Serializable;
 public class Employee implements  Serializable{
 
-    private int id;
+    private String id;
     private String name;
     private int age;
     private String CompanyName;
@@ -13,11 +13,11 @@ public class Employee implements  Serializable{
 
     //setter and getters for all private members
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -91,7 +91,7 @@ public class Employee implements  Serializable{
                 '}';
     }
 
-    public Employee(int id, String name, int age, String companyName, String designation, double salary, String address, int phone) {
+    public Employee(String id, String name, int age, String companyName, String designation, double salary, String address, int phone) {
         super();
         this.id = id;
         this.name = name;
