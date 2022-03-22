@@ -13,13 +13,22 @@ public class Validate {
             countOfDigits++;
         }
         if(countOfDigits!=10) throw new Exception("Phone number does not contains 10 digits");
+        //Main.menu();
 
 
     }
     static void validateSalary(double salary) throws  Exception{
         if(salary<=0) throw  new Exception("Salary must be greater than zero");
+
     }
     static void validateAge(int age) throws Exception{
-        if( age<18 || age>90) throw  new Exception("Age cannot be less than 18 or greater than 90");
+        if( age<18 || age>90)
+        {
+            //Main.menu();
+            throw  new Exception("Age cannot be less than 18 or greater than 90");
+        }
+
+
+
     }
 }

@@ -6,8 +6,15 @@ import java.util.Scanner;
 
 public class Main {
     EmployeeService service = new EmployeeService();
+    Register register=new Register();
     static boolean ordering = true;
 
+    public static  void registerMenu()
+    {
+        System.out.println("*******registration*******");
+        System.out.println("1-Login" +
+                            "\n2-register");
+    }
     public static void menu() {
         System.out.println("******Welcome to user Database*********"
 
@@ -24,6 +31,30 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         EmployeeService service = new EmployeeService();
+        Register register=new Register();
+        boolean notregisterd=true;
+
+        do{
+            registerMenu();
+            System.out.println("Enter the choice");
+            int choice=sc.nextInt();
+            switch(choice){
+                case 1:
+                    System.out.println("Enter username and password");
+
+
+                    notregisterd=false;
+                    break;
+
+                case 2:
+                    System.out.println("Registration");
+                    register.registerUser();
+                    register.viewRegisteredUser();
+
+                    break;
+
+            }
+        }while(notregisterd==true);
 
         do{
             menu();

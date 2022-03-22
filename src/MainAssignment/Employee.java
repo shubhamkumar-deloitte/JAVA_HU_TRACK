@@ -3,14 +3,37 @@ import java.io.Serializable;
 public class Employee implements  Serializable{
 
     private String id;
-    private String name;
+    private String name=null;
     private int age;
     private String CompanyName;
     private String designation;
     private double salary;
     private String address;
     private int phone;
+    private String username=null;
+    private String password=null;
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Employee(String username, String password)
+    {
+        this.username=username;
+        this.password=password;
+    }
     //setter and getters for all private members
 
     public String getId() {
