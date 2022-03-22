@@ -58,52 +58,91 @@ public class EmployeeService  {
     public void updateEmployee() throws Exception {
         System.out.println("Enter the name");
         name=sc.next();
-        System.out.println("Enter the Designation");
-        designation= sc.next();
-        boolean found=false;
+
+        int j=0;
         for(Employee emp:empset){
-            if(emp.getName().equals(name) && emp.getDesignation().equals(designation)){
-                System.out.println("Enter name");
-                name=sc.next();
 
+            if(emp.getName().equals(name)){
 
-//                System.out.println("Enter age");
-//                age=sc.nextInt();
-//                Validate.validateAge(age);
-//                System.out.println("Enter Company");
-//                CompanyName=sc.next();
-//                System.out.println("Enter designation");
-//                designation=sc.next();
-//                System.out.println("Enter salary");
-//                salary=sc.nextDouble();
-//                Validate.validateSalary(salary);
-//                System.out.println("enter address");
-//                address=sc.nextLine();
-//                System.out.println("Enter phone No");
-//                phone=sc.nextInt();
-//                Validate.validatePhone(phone);
-//
-//                emp.setName(name);
-//                emp.setAge(age);
-//                emp.setCompanyName(CompanyName);
-//                emp.setDesignation(designation);
-//                emp.setSalary(salary);
-//                emp.setAddress(address);
-//                emp.setPhone(phone);
+                System.out.println("employee found");
+                j++;
+                do{
+                    int choice;
+                    System.out.println("\n Edit employee details:\n"
+                            +"\n1.name"
+                            +"\n2. Age"
+                            +"\n3. Comapany Name"
+                            +"\n4.Designation"
+                            +"\n5.Salary"
+                            +"\n6. Address"
+                            +"\n7. Phone"
+                            +"\n8. Go back");
+                    System.out.println("Enter the choice");
+                    choice= sc.nextInt();
+                    switch(choice){
+                        case 1:
+                            System.out.println("Enter new name");
+                            name=sc.next();
+                            emp.setName(name);
+                            break;
 
-                System.out.println("New updated details are");
-                System.out.println(emp);
-                found=true;
+                        case 2:
+                            System.out.println("Enter new age");
+                            age=sc.nextInt();
+                            Validate.validateAge(age);
+                            emp.setAge(age);
+                            break;
+                        case 3:
+                            System.out.println("Enter new Company name");
+                            CompanyName=sc.next();
+                            emp.setCompanyName(CompanyName);
+                            break;
+
+                        case 4:
+                            System.out.println("Enter new Designation");
+                            designation=sc.next();
+                            emp.setDesignation(designation);
+                            break;
+                        case 5:
+                            System.out.println("Enter new salary");
+                            salary=sc.nextDouble();
+                            Validate.validateSalary(salary);
+                            emp.setSalary(salary);
+                            break;
+                        case 6:
+                            System.out.println("Enter new address");
+                            address=sc.next();
+                            emp.setAddress(address);
+                            break;
+
+                        case 7:
+                            System.out.println("Enter new Phone Number");
+                            phone=sc.nextInt();
+                            Validate.validatePhone(phone);
+                            emp.setPhone(phone);
+                            break;
+
+                        case 8: j++;
+                                break;
+
+                        default:
+                            System.out.println("choose a correct choice");
+                            break;
+                    }
+                }while (j==1);
+
+                if(j==0)
+                {
+                    System.out.println("Details didnot match, Enter a valid detail");
+                }else{
+                    System.out.println("New updated details are");
+                    System.out.println(emp);
+                }
+
+                //found=true;
 
             }
         }
-        if(found==false){
-            System.out.println("Employee not found");
-
-        }else{
-            System.out.println("Details updated");
-        }
-
     }
     //adding data to text file
     public void addData() throws Exception{
