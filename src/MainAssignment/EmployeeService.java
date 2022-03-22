@@ -16,16 +16,6 @@ public class EmployeeService  {
     Employee emp1=new Employee("101","Shubham",22,"HashedIn","SDET",5000,"Bangalore",1234567899);
 
     Scanner sc=new Scanner(System.in);
-    //adding to file
-
-
-
-
-
-
-
-
-
     boolean found=false;
 
      String id;
@@ -45,6 +35,7 @@ public class EmployeeService  {
          for(Employee emp:empset){
              System.out.println(emp);
          }
+
     }
     //view on the based of ID
 
@@ -64,34 +55,41 @@ public class EmployeeService  {
     }
     //update
     //user-id cant be updated
-    public void updateEmployee(){
-        System.out.println("Enter the id");
-        id=sc.next();
+    public void updateEmployee() throws Exception {
+        System.out.println("Enter the name");
+        name=sc.next();
+        System.out.println("Enter the Designation");
+        designation= sc.next();
         boolean found=false;
         for(Employee emp:empset){
-            if(emp.getId().equals(id)){
+            if(emp.getName().equals(name) && emp.getDesignation().equals(designation)){
                 System.out.println("Enter name");
                 name=sc.next();
-                System.out.println("Enter age");
-                age=sc.nextInt();
-                System.out.println("Enter Company");
-                CompanyName=sc.next();
-                System.out.println("Enter designation");
-                designation=sc.next();
-                System.out.println("Enter salary");
-                salary=sc.nextDouble();
-                System.out.println("enter address");
-                address=sc.nextLine();
-                System.out.println("Enter phone No");
-                phone=sc.nextInt();
 
-                emp.setName(name);
-                emp.setAge(age);
-                emp.setCompanyName(CompanyName);
-                emp.setDesignation(designation);
-                emp.setSalary(salary);
-                emp.setAddress(address);
-                emp.setPhone(phone);
+
+//                System.out.println("Enter age");
+//                age=sc.nextInt();
+//                Validate.validateAge(age);
+//                System.out.println("Enter Company");
+//                CompanyName=sc.next();
+//                System.out.println("Enter designation");
+//                designation=sc.next();
+//                System.out.println("Enter salary");
+//                salary=sc.nextDouble();
+//                Validate.validateSalary(salary);
+//                System.out.println("enter address");
+//                address=sc.nextLine();
+//                System.out.println("Enter phone No");
+//                phone=sc.nextInt();
+//                Validate.validatePhone(phone);
+//
+//                emp.setName(name);
+//                emp.setAge(age);
+//                emp.setCompanyName(CompanyName);
+//                emp.setDesignation(designation);
+//                emp.setSalary(salary);
+//                emp.setAddress(address);
+//                emp.setPhone(phone);
 
                 System.out.println("New updated details are");
                 System.out.println(emp);
@@ -163,23 +161,26 @@ public class EmployeeService  {
         }
     }
     //add employee
-    public void addEmp(){
+    public void addEmp() throws Exception{
         //System.out.println("Enter id");
         id=UUID.randomUUID().toString();
         System.out.println("Enter name");
         name=sc.next();
         System.out.println("Enter age");
         age=sc.nextInt();
+        Validate.validateAge(age);
         System.out.println("Enter company");
         CompanyName=sc.next();
         System.out.println("Enter designation");
         designation=sc.next();
         System.out.println("ENter salary");
         salary=sc.nextDouble();
+        Validate.validateSalary(salary);
         System.out.println("ENter address");
         address=sc.next();
         System.out.println("ENter phone");
         phone=sc.nextInt();
+        Validate.validatePhone(phone);
 
         Employee emp=new Employee(id,name,age,CompanyName,designation,salary,address,phone);
         empset.add(emp);
