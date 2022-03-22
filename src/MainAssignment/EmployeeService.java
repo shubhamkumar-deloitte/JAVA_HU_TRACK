@@ -170,7 +170,7 @@ public class EmployeeService  {
                  {
                      writer.write(emp.toString());
                  }
-                 writer.flush();
+                 //writer.flush();
                  writer.close();
 //
              }
