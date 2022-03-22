@@ -14,14 +14,15 @@ public class Register {
     boolean loggedin=false;
 
 
-    public void registerUser()
-    {
+    public void registerUser() throws Exception {
         System.out.println("Enter the username");
         username=sc.next();
         System.out.println("enter the password");
         password=sc.next();
+        //Validate.validatePassword(password);
         System.out.println("re-enter the password");
         repassword=sc.next();
+        Validate.validatePassword(repassword,repassword);
         Employee emp= new Employee(username,password);
         registeredUser.add(emp);
         System.out.println("successfully registerd");
