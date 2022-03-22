@@ -124,7 +124,7 @@ public class EmployeeService {
         System.out.println("ENter salary");
         salary=sc.nextDouble();
         System.out.println("ENter address");
-        address=sc.nextLine();
+        address=sc.next();
         System.out.println("ENter phone");
         phone=sc.nextInt();
 
