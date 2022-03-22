@@ -11,6 +11,8 @@ public class Register {
     String username;
     String password;
     String repassword;
+    boolean loggedin=false;
+
 
     public void registerUser()
     {
@@ -33,4 +35,29 @@ public class Register {
             System.out.println(emp.getPassword());
         }
     }
-}
+    public void login(String username, String password)
+    {
+        for(Employee emp:registeredUser)
+        {
+            if(emp.getUsername().equals(username) && emp.getPassword().equals(password))
+            {
+                System.out.println("logged in");
+                loggedin=true;
+                Main.menu();
+            }
+            else
+            {
+                System.out.println("invalid credentials");
+                Main.registerMenu();
+            }
+        }
+
+    }
+    public boolean getLoggedIn(){
+        return loggedin;
+    }
+
+    }
+
+
+

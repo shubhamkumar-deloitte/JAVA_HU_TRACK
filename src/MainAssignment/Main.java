@@ -31,8 +31,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         EmployeeService service = new EmployeeService();
+        String username;
+        String password;
         Register register=new Register();
         boolean notregisterd=true;
+        //boolean loggedin=false;
 
         do{
             registerMenu();
@@ -40,7 +43,11 @@ public class Main {
             int choice=sc.nextInt();
             switch(choice){
                 case 1:
-                    System.out.println("Enter username and password");
+                    System.out.println("enter the username");
+                    username=sc.next();
+                    System.out.println("Enter  password");
+                    password=sc.next();
+                    register.login(username,password);
 
 
                     notregisterd=false;
@@ -56,42 +63,49 @@ public class Main {
             }
         }while(notregisterd==true);
 
-        do{
-            menu();
-            System.out.println("Enter the choice");
-            int choice=sc.nextInt();
+        boolean loggedIn=register.getLoggedIn();
+        if(loggedIn==true)
+        {
+            do{
+                menu();
+                System.out.println("Enter the choice");
+                int choice=sc.nextInt();
 
-            switch(choice){
-                case 1:
-                    System.out.println("Add user data");
-                    service.addEmp();
-                    break;
+                switch(choice){
+                    case 1:
+                        System.out.println("Add user data");
+                        service.addEmp();
+                        break;
 
-                case 2:
-                    System.out.println("List user Data");
-                    service.viewAllEmployee();
-                    break;
-                case 3:
-                    System.out.println("update user data");
-                    service.updateEmployee();
-                    break;
+                    case 2:
+                        System.out.println("List user Data");
+                        service.viewAllEmployee();
+                        break;
+                    case 3:
+                        System.out.println("update user data");
+                        service.updateEmployee();
+                        break;
 
-                case 4:
-                    System.out.println("Delete user Data");
-                    service.deleteEmployee();
-                    break;
+                    case 4:
+                        System.out.println("Delete user Data");
+                        service.deleteEmployee();
+                        break;
 
-                case 5:
-                    System.out.println("Exited Successfully");
+                    case 5:
+                        System.out.println("Exited Successfully");
 
-                    service.addData();
-                    System.exit(0);
+                        service.addData();
+                        System.exit(0);
 
-                default:
-                    System.out.println("please enter a valid choice");
-                    break;
-            }
-        }while(ordering);
+                    default:
+                        System.out.println("please enter a valid choice");
+                        break;
+                }
+            }while(ordering);
+        }else
+        {
+            Main.registerMenu();
+        }
 
 
     }
