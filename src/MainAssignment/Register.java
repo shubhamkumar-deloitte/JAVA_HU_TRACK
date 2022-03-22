@@ -38,8 +38,14 @@ public class Register {
     }
     public void login(String username, String password)
     {
+        if(registeredUser.isEmpty()==true)
+        {
+            System.out.println("user not registered");
+            Main.registerMenu();
+        }
         for(Employee emp:registeredUser)
         {
+
             if(emp.getUsername().equals(username) && emp.getPassword().equals(password))
             {
                 System.out.println("logged in");

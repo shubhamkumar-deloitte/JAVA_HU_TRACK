@@ -49,14 +49,18 @@ public class Main {
                     password=sc.next();
                     register.login(username,password);
 
-
-                    notregisterd=false;
+                    if(register.loggedin==true)
+                    {
+                        notregisterd=false;
+                    }
+                    //notregisterd=false;
                     break;
 
                 case 2:
                     System.out.println("Registration");
                     register.registerUser();
                     register.viewRegisteredUser();
+
 
                     break;
 

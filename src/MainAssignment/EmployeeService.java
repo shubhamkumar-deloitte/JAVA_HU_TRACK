@@ -225,6 +225,7 @@ public class EmployeeService  {
         Employee emp=new Employee(id,name,age,CompanyName,designation,salary,address,phone);
         empset.add(emp);
         System.out.println("Newly added employee details are");
+        System.out.println(emp);
 
         //
 
