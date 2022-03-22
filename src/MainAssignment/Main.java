@@ -18,7 +18,7 @@ public class Main {
                 + "\n5.Exit");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
 
         Scanner sc = new Scanner(System.in);
@@ -52,6 +52,8 @@ public class Main {
 
                 case 5:
                     System.out.println("Exited Successfully");
+
+                    service.addData();
                     System.exit(0);
 
                 default:

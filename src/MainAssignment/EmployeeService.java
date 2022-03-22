@@ -24,6 +24,8 @@ public class EmployeeService  {
 
 
 
+
+
     boolean found=false;
 
      String id;
@@ -105,6 +107,40 @@ public class EmployeeService  {
         }
 
     }
+    //adding data to text file
+    public void addData() throws Exception{
+         File f=null;
+         FileInputStream fis=null;
+         ObjectInputStream ois=null;
+         FileOutputStream fos=null;
+         ObjectOutputStream oos=null;
+
+         try{
+             f= new File("C:/Users/shubhamkumar32/IdeaProjects/Oops_Assignment/src/MainAssignment/UserData.txt");
+             if(f.exists()){
+                 System.out.println("entered here");
+//                 fis= new FileInputStream(f);
+//                 fos = new FileOutputStream(f);
+//                 //ois=new ObjectInputStream(fis);
+//                 oos=new ObjectOutputStream(fos);
+//                 //empset=(HashSet<Employee>)ois.readObject();
+//                 oos.writeObject(empset);
+//                 fos.close();
+//                 oos.close();
+                 FileWriter writer = new FileWriter(f);
+                 for(Employee emp:empset)
+                 {
+                     writer.write(emp.toString());
+                 }
+                 writer.flush();
+                 writer.close();
+//
+             }
+
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+    }
     //delete
     public void deleteEmployee(){
         System.out.println("Enter id");
@@ -148,7 +184,8 @@ public class EmployeeService  {
         Employee emp=new Employee(id,name,age,CompanyName,designation,salary,address,phone);
         empset.add(emp);
         System.out.println("Newly added employee details are");
-        System.out.println(emp);
+
+        //
 
     }
 }
